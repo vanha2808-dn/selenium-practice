@@ -17,6 +17,7 @@ public class amazonSearchResultPage {
             dismissNotification();
         }
         searchAdidasOnHomePage();
+        locatorElementsAfterSearch();
     }
 
     private static void loadAmazonHomePage() {
@@ -51,19 +52,32 @@ public class amazonSearchResultPage {
             e.printStackTrace();
         }
     }
+
     private static void searchAdidasOnHomePage () {
         try {
             // Find Search
             WebElement element4 = driver.findElement(
                     By.xpath("//input[@id='twotabsearchtextbox' and @placeholder='Search Amazon']")
             );
+            // send keys
             element4.sendKeys("Adidas");
-            
-
+            WebElement searchElement = driver.findElement(
+                    By.xpath("//input[@id='nav-search-submit-button']")
+            );
+            // search
+            searchElement.click();
             Thread.sleep(5000);
+
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
+        }
+    }
+
+    public static void locatorElementsAfterSearch() {
+        try {
+
+        }
+        finally {
             driver.quit();
         }
     }
