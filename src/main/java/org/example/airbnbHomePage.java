@@ -19,7 +19,7 @@ public class airbnbHomePage {
         String airbnbHomePage = "https://demo5.cybersoft.edu.vn/";
         try {
             driver.get(airbnbHomePage);
-            Thread.sleep(5000);
+            Thread.sleep(7000);
 
             // Navigation tab elements
             WebElement element1 = driver.findElement(By.xpath("//a[@class='flex items-center space-x-3 rtl:space-x-reverse active']"));
@@ -42,14 +42,13 @@ public class airbnbHomePage {
 
             // add quality of customer
             // click "Thêm khách"
-            WebElement customerEditQuality = element7.findElement(By.xpath("//p"));
-            Actions actions = new Actions(driver);
-            actions.moveToElement(customerEditQuality).click().perform();
+            WebElement customerEditQuality =
+                    driver.findElement(By.xpath("//p[text()='Thêm khách']"));
+            customerEditQuality.click();
             Thread.sleep(5000);
             // add and minus button
-//            WebElement element8 = element7.findElement(By.xpath("//button[normalize-space()='+']"));
-//            WebElement element9 = element7.findElement(By.xpath("//button[normalize-space()='-']"));
-        //    actions.moveToElement(element8).click().perform();
+            WebElement element8 = element7.findElement(By.xpath("//button[normalize-space()='+']"));
+            WebElement element9 = element7.findElement(By.xpath("//button[normalize-space()='-']"));
 
             // destination option1 -- Ho Chi Minh
             WebElement element10 = driver.findElement(By.xpath("//div[@class='container space-y-12']//a[1]"));
